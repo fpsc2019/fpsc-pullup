@@ -917,6 +917,8 @@ function convertUTCDate(dateTimestamp) {
 }
 
 function nextShareTime() {
+    return (Math.floor(new Date().getTime()/(10*60*1000))+1)*10*60*1000;
+    /*
     let d = new Date();
     d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
     let year = d.getUTCFullYear();
@@ -926,6 +928,7 @@ function nextShareTime() {
 
     let tz = new Date().getTimezoneOffset() / 60;
     return d.getTime() + (-tz) * 60 * 60 * 1000;
+    */
 }
 
 function appendZero(i) {
