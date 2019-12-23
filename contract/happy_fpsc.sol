@@ -165,17 +165,17 @@ contract Config {
     uint256 constant FIVETIMES = 25000 * 1e18;
 
     uint256 constant kingAmount = 1250000 * 1e18;
-    uint256 constant baron_large_total =  1250000 * 1e18;
-    uint256 constant baron_little_total = 2500000 * 1e18;
+    uint256 constant baron_large_total =  2500000 * 1e18;
+    uint256 constant baron_little_total = 1250000 * 1e18;
 
-    uint256 constant earl_large_total =  2500000 * 1e18;
-    uint256 constant earl_little_total = 5000000 * 1e18;
+    uint256 constant earl_large_total =  5000000 * 1e18;
+    uint256 constant earl_little_total = 2500000 * 1e18;
 
-    uint256 constant marquess_large_total =  5000000 * 1e18;
-    uint256 constant marquess_little_total = 10000000 * 1e18;
+    uint256 constant marquess_large_total =  10000000 * 1e18;
+    uint256 constant marquess_little_total = 5000000 * 1e18;
 
-    uint256 constant duke_large_total =  20000000 * 1e18;
-    uint256 constant duke_little_total = 40000000 * 1e18;
+    uint256 constant duke_large_total =  40000000 * 1e18;
+    uint256 constant duke_little_total = 20000000 * 1e18;
 
 }
 
@@ -384,10 +384,10 @@ contract InvestorRelationship is Config, SeroInterface {
         uint256 allShare = investors[id].amount.mul(investors[id].profitLevel);
         uint256 currentShare = allShare.sub(investors[id].returnAmount);
         uint256 profit = preRewardAmount.mul(currentShare) / preTotalShare;
-        uint256 maxprofit = allShare.mul(2) / 1000;
-        if (profit > maxprofit) {
-            profit = maxprofit;
-        }
+        //uint256 maxprofit = allShare.mul(2) / 1000;
+        //if (profit > maxprofit) {
+        //    profit = maxprofit;
+        //}
         profit = _payProfit(id, profit);
 
         returnRewards[id].staticTimestamp = now;
