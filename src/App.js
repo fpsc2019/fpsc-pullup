@@ -391,12 +391,6 @@ class ContentPage extends Component {
         }else{
             return "0x0"
         }
-        //
-        // try{
-        //
-        // }catch (e) {
-        //     console.log("_method:",_method,args,e.message);
-        // }
     }
 
     executeMethod(_method, args, value, cy, password, callback) {
@@ -609,7 +603,9 @@ class ContentPage extends Component {
             returnPercent = (a * 100 / parseFloat(b)).toFixed(2);
         }
 
-        let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
+        //let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
+        // test
+        let showCountDown = staticTimestamp * 1000/600 === new Date().getTime()/600;
         return (
             <div className="App" style={{marginTop: '80px'}}>
 
@@ -917,6 +913,7 @@ function convertUTCDate(dateTimestamp) {
 }
 
 function nextShareTime() {
+    // test
     return (Math.floor(new Date().getTime()/(10*60*1000))+1)*10*60*1000;
     /*
     let d = new Date();

@@ -45,7 +45,9 @@ library Utils {
 
 
     function sameDay(uint day1, uint day2) internal pure returns (bool){
-        return day1 / 24 / 3600 == day2 / 24 / 3600;
+        //return day1 / 24 / 3600 == day2 / 24 / 3600;
+        // test
+        return day1 / 600 == day2 / 600;
     }
 
     function bytes32Eq(bytes32 a, bytes32 b) internal pure returns (bool) {
@@ -365,12 +367,11 @@ contract InvestorRelationship is Config, SeroInterface {
 
         cash = cash.add(allProfit);
        
-        height = _profitLevel(investors[id].amount); //level
-        currentId = investors[id].amount; //totalAmount 
+        height = _profitLevel(investors[id].amount);
+        currentId = investors[id].amount;
         if (height == investors[id].profitLevel) {
             totalShare = totalShare.add(amount.mul(height)).sub(allProfit);
         } else {
-            // totalAmount * level - (totalAmount-amount ) *profitLevel
             childId = currentId.sub(amount) * investors[id].profitLevel;
             otherAmount = currentId.mul(height).sub(childId);
             totalShare = totalShare.add(otherAmount).sub(allProfit);
@@ -384,10 +385,6 @@ contract InvestorRelationship is Config, SeroInterface {
         uint256 allShare = investors[id].amount.mul(investors[id].profitLevel);
         uint256 currentShare = allShare.sub(investors[id].returnAmount);
         uint256 profit = preRewardAmount.mul(currentShare) / preTotalShare;
-        //uint256 maxprofit = allShare.mul(2) / 1000;
-        //if (profit > maxprofit) {
-        //    profit = maxprofit;
-        //}
         profit = _payProfit(id, profit);
 
         returnRewards[id].staticTimestamp = now;
@@ -557,8 +554,7 @@ interface CodeService {
 
 contract Happy is InvestorRelationship, Ownable {
     
-    uint256 private triggerStaticNum = 20;
-    mapping(address => uint256) private ticketBalances;
+    uint256 private triggerStaticNum = 100;
     address private marketAddr;
 
     CodeService private codeService;
