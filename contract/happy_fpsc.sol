@@ -165,22 +165,22 @@ contract Config {
     uint256 constant FIVETIMES = 25000 * 1e18;
 
     uint256 constant kingAmount = 1250000 * 1e18;
-    uint256 constant baron_large_total = 1250000 * 1e18;
+    uint256 constant baron_large_total =  1250000 * 1e18;
     uint256 constant baron_little_total = 2500000 * 1e18;
 
-    uint256 constant earl_large_total = 2500000 * 1e18;
+    uint256 constant earl_large_total =  2500000 * 1e18;
     uint256 constant earl_little_total = 5000000 * 1e18;
 
-    uint256 constant marquess_large_total = 5000000 * 1e18;
+    uint256 constant marquess_large_total =  5000000 * 1e18;
     uint256 constant marquess_little_total = 10000000 * 1e18;
 
-    uint256 constant duke_large_total = 20000000 * 1e18;
+    uint256 constant duke_large_total =  20000000 * 1e18;
     uint256 constant duke_little_total = 40000000 * 1e18;
 
 }
 
 contract InvestorRelationship is Config, SeroInterface {
-    string constant public INVEST_CURRENCY = "FPRS";
+    string constant public INVEST_CURRENCY = "FPSC";
     uint256 constant private MAXHEIGHT = 300;
 
     struct Investor {
@@ -591,10 +591,6 @@ contract Happy is InvestorRelationship, Ownable {
     }
 
 
-    function balanceOfTicket() public view returns (uint256 amount) {
-        return ticketBalances[msg.sender];
-    }
-
     function details() public view
     returns (string, string, uint256, uint256, uint256, uint256, uint256, uint256, uint256, uint8, bool)  {
         Investor memory i = findByAddr(msg.sender);
@@ -652,7 +648,7 @@ contract Happy is InvestorRelationship, Ownable {
         require(Utils._stringEq(INVEST_CURRENCY, sero_msg_currency()));
         require(!Utils.isContract(msg.sender));
 
-        require(msg.value >= 1e20);
+        require(msg.value >= 1e21);
 
         uint256 index = getIndexByAddr(msg.sender);
         if (index == 0) {
