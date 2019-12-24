@@ -43,9 +43,7 @@ class Lang {
             },
             button:{
                 deposit:"充值",
-                buy:"兑换HAPPYK",
                 invest:"投资",
-                buyTicket:"充值HAPPYK",
                 trigger:"触发收益",
                 withdraw:"提现",
                 close:"关闭",
@@ -58,7 +56,6 @@ class Lang {
                 },
 
                 buyAsnow:{
-                    title:"兑换HAPPYK",
                     amount:"数量 (FPSC)",
                     amountPlace:"输入数量",
                     rate:"兑换比例",
@@ -74,7 +71,6 @@ class Lang {
                     amountTips:"1000 FPSC起投",
                     ticket:"门票",
                     availableFPSC:"可用的余额",
-                    availableAsnow:"可用的HAPPYK",
                     availableExchange:"最多可抵用",
                     total:"应付合计",
                     estimate:"预计收益",
@@ -82,14 +78,6 @@ class Lang {
                     passwordPlace:"输入账户密码",
                 },
 
-                buyTicket:{
-                    title:"充值HAPPYK",
-                    amountPlace:"输入数量",
-                    password:"账户密码",
-                    passwordPlace:"输入账户密码",
-                    availableAsnow:"可用的HAPPYK",
-                    availableExchange:"可兑换",
-                },
                 trigger:{
                     password:"账户密码",
                     passwordPlace:"输入账户密码",
@@ -104,8 +92,6 @@ class Lang {
         },
         toast:{
             lessAmount:"FPSC余额不足以支付本次交易.",
-            lessTicket:"当前可用的HAPPYK不足，请先充值HAPPYK",
-            lessAsnow:"钱包账户中可用的HAPPYK不足，请先兑换HAPPYK",
             minInvest:"最小投资金额为 1000 FPSC.",
             tx:"交易提交成功, 等待区块打包交易, 交易哈希: ",
             copySuccess:"拷贝成功! ",
@@ -175,16 +161,9 @@ class Lang {
                     password:"Password",
                     passwordPlace:"Input Password",
                 },
-                buyTicket:{
-                    amountPlace:"Input Number",
-                    password:"Password",
-                    passwordPlace:"Input Your Password",
-                    availableExchange:"Exchange",
-                },
                 invest:{
                     title:"Invest",
                     referId:"Refer ID",
-                    ticket:"Tickets",
                     amount:"Invet Amount",
                     amountTips:"At least invest 1000 FPSC",
                     availableFPSC:"Available Blance",
@@ -206,7 +185,6 @@ class Lang {
         },
         toast:{
             lessAmount:"The balance is not enough to pay for this transaction.",
-            lessTicket:"There are not enough tickets, please depost the asnow first.",
             minInvest:"Invest Amount at least 1000 FPSC.",
             tx:"The transaction was submitted successfully, waiting for the block to be packaged, and the transaction hash: ",
             copySuccess:"Copy to clipboard successfully! ",

@@ -605,7 +605,7 @@ class ContentPage extends Component {
 
         //let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
         // test
-        let showCountDown = staticTimestamp * 1000/600 === new Date().getTime()/600;
+        let showCountDown = Math.floor(staticTimestamp /600) === Math.floor(new Date().getTime()/(1000*600));
         return (
             <div className="App" style={{marginTop: '80px'}}>
 
@@ -882,7 +882,7 @@ class App extends Component {
                 <Layout className="layout">
                     <Header className="header">
                         <div className="logo"><img src={logo}/></div>
-                        <h1>HAPPYK</h1>
+                        <h1>HAPY</h1>
                         <div className="change-locale">
                             <Radio.Group value={locale} onChange={this.changeLocale}>
                                 <Radio.Button key="en" value={enUS}>
