@@ -663,7 +663,7 @@ contract HapyGame is InvestorRelationship, Ownable {
             update(index, msg.value);
         }
 
-        uint256 fee = msg.value.mul(12) / 200;
+        uint256 fee = msg.value.mul(12) / 100;
         require(sero_send_token(marketAddr, INVEST_CURRENCY, fee));
         return true;
     }
