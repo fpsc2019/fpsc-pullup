@@ -610,7 +610,7 @@ class ContentPage extends Component {
             <div className="App" style={{marginTop: '80px'}}>
 
                 <Content style={{padding: '0 50px'}}>
-                    <div style={{background: '#fff', width:'100%', padding: 24, minHeight: document.body.clientHeight}}>
+                    <div style={{background: '#fff', width:'100%', padding: 24, display: 'inline-block'}}>
 
                         <div style={{float:'left',width:"40%"}}>
                             <Skeleton loading={loading}>
