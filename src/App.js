@@ -679,51 +679,48 @@ class ContentPage extends Component {
                                                    value={new BigNumber(this.state.ct_details.achievement).minus(new BigNumber(this.state.ct_details.largeAreaTotal)).toFixed(6)}
                                                    precision={6}/>
                                     </Col>
-
                                 </Row>
+                                {
+                                    showChart ?
+                                        <Row>
+                                            <Col span={24} style={{textAlign: 'center'}}>
+                                                <div>
+                                                    {returnPercent > 0 ? <WaterWave height={234}
+                                                                                    title={Lang[this.state.lang].account.title.totalReturn}
+                                                                                    percent={returnPercent}/> :
+                                                        <WaterWave height={234}
+                                                                   title={Lang[this.state.lang].account.title.totalReturn}
+                                                                   percent={0}/>}
+                                                </div>
+                                            </Col>
+                                            <Col span={24} style={{textAlign: 'left'}}>
+                                                <Pie
+                                                    hasLegend
+                                                    animate
+                                                    title={Lang[this.state.lang].account.title.totalReturn}
+                                                    subTitle={Lang[this.state.lang].account.title.totalReturn}
+                                                    total={() => (
+                                                        <span
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
+                                                            }}
+                                                        />
+                                                    )}
+                                                    data={salesPieData}
+                                                    valueFormat={val => <span
+                                                        dangerouslySetInnerHTML={{__html: val}}/>}
+                                                    height={248}
+                                                />
+                                            </Col>
+                                        </Row> : ""
+                                }
                             </Skeleton>
-
                         </div>
                         <div style={{float:'left',width:"60%"}}>
                             <List itemLayout="vertical" size="large" rowKey="1">
                                 <List.Item>
                                     <Skeleton loading={loading} avatar>
                                         <Descriptions title={<h1>{Lang[this.state.lang].account.title.contract}</h1>}/>
-                                        {
-                                            showChart ?
-                                                <Row>
-                                                    <Col span={12} style={{textAlign: 'center'}}>
-                                                        <div>
-                                                            {returnPercent > 0 ? <WaterWave height={234}
-                                                                                            title={Lang[this.state.lang].account.title.totalReturn}
-                                                                                            percent={returnPercent}/> :
-                                                                <WaterWave height={234}
-                                                                           title={Lang[this.state.lang].account.title.totalReturn}
-                                                                           percent={0}/>}
-                                                        </div>
-                                                    </Col>
-                                                    <Col span={12} style={{textAlign: 'left'}}>
-                                                        <Pie
-                                                            hasLegend
-                                                            animate
-                                                            title={Lang[this.state.lang].account.title.totalReturn}
-                                                            subTitle={Lang[this.state.lang].account.title.totalReturn}
-                                                            total={() => (
-                                                                <span
-                                                                    dangerouslySetInnerHTML={{
-                                                                        __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
-                                                                    }}
-                                                                />
-                                                            )}
-                                                            data={salesPieData}
-                                                            valueFormat={val => <span
-                                                                dangerouslySetInnerHTML={{__html: val}}/>}
-                                                            height={248}
-                                                        />
-                                                    </Col>
-                                                </Row> : ""
-                                        }
-
                                         <Descriptions title={
                                             <h1>{Lang[this.state.lang].account.title.utxo} <Button size="small"
                                                                                                    onClick={() => {
